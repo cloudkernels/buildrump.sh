@@ -42,7 +42,7 @@
 # that once buildrump.sh is published, the NetBSD sources will be
 # available via git.
 #
-NBSRC_CVSDATE="20160728 1100UTC"
+NBSRC_CVSDATE="20181029 0000UTC"
 NBSRC_CVSFLAGS="-z3"
 
 # If set, timestamp for src/sys/rump/listsrcdir.  If unset,
@@ -56,14 +56,16 @@ NBSRC_CVSFLAGS="-z3"
 #   20151111 1111UTC:
 #	src/sys/rump'
 #
-NBSRC_EXTRA_sys=''
+NBSRC_EXTRA_sys="
+   $NBSRC_CVSDATE:
+	src/external/public-domain/xz src/usr.bin/grep"
 
 NBSRC_EXTRA_posix=''
 
 NBSRC_EXTRA_usr=''
 
-GITREPO='https://github.com/rumpkernel/src-netbsd'
-GITREPOPUSH='git@github.com:rumpkernel/src-netbsd'
+GITREPO='https://github.com/cloudkernels/src-netbsd'
+GITREPOPUSH='git@github.com:cloudkernels/src-netbsd'
 GITREVFILE='.srcgitrev'
 
 checkoutcvs ()
@@ -356,16 +358,17 @@ BRDIR=$(dirname $0)
 SRCDIR=${2}
 
 # default to the most secure source for githubdate
-if [ -z "${BUILDRUMP_CVSROOT}" ]; then
-	case "${1}" in
-	githubdate)
-		BUILDRUMP_CVSROOT=cvs.netbsd.org:/cvsroot
-		;;
-	*)
-		BUILDRUMP_CVSROOT=:pserver:anoncvs@anoncvs.netbsd.org:/cvsroot
-		;;
-	esac
-fi
+#if [ -z "${BUILDRUMP_CVSROOT}" ]; then
+#	case "${1}" in
+#	githubdate)
+#		BUILDRUMP_CVSROOT=cvs.netbsd.org:/cvsroot
+#		;;
+#	*)
+#		BUILDRUMP_CVSROOT=:pserver:anoncvs@anoncvs.netbsd.org:/cvsroot
+#		;;
+#	esac
+#fi
+BUILDRUMP_CVSROOT=:pserver:anoncvs@anoncvs.netbsd.org:/cvsroot
 
 case "${1}" in
 cvs|cvsbuildrump)

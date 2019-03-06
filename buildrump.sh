@@ -859,7 +859,7 @@ makekernelheaders ()
 	# missing some architectures
 	appendvar dodirs arch/amd64/include arch/i386/include arch/x86/include
 	appendvar dodirs arch/arm/include arch/arm/include/arm32
-	appendvar dodirs arch/evbarm64/include arch/aarch64/include
+	appendvar dodirs arch/evbarm/include arch/aarch64/include
 	appendvar dodirs arch/evbppc/include arch/powerpc/include
 	appendvar dodirs arch/evbmips/include arch/mips/include
 	appendvar dodirs arch/riscv/include

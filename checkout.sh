@@ -58,7 +58,9 @@ NBSRC_CVSFLAGS="-z3"
 #
 NBSRC_EXTRA_sys="
    $NBSRC_CVSDATE:
-	src/external/public-domain/xz src/usr.bin/grep"
+	src/external/public-domain/xz src/usr.bin/grep
+	src/external/gpl3/gcc src/external/gpl3/gcc.old src/external/lgpl3/gmp
+	src/lib/librt src/lib/libintl"
 
 NBSRC_EXTRA_posix=''
 

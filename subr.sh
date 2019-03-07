@@ -47,7 +47,8 @@ stdlibs ()
 	liblibs='libc libcrypt libipsec libkvm libm libnpf libpci libprop
 	    libpthread librmt libutil liby libz'
 	extralibs='external/bsd/flex/lib
-	    external/bsd/libpcap/lib'
+	    external/bsd/libpcap/lib
+	    external/gpl3/gcc/lib/libgcc'
 	for lib in ${liblibs}; do
 		echo ${prefix}lib/${lib}
 	done
@@ -72,10 +73,10 @@ makeuserlib ()
 
 	( cd ${lib}
 		${RUMPMAKE} ${objarg} obj
-		${RUMPMAKE} MKMAN=no MKLINT=no MKPROFILE=no MKYP=no	\
-		    MKNLS=no NOGCCERROR=1 HAVE_LIBGCC_EH=yes		\
+		${RUMPMAKE} MKMAN=no MKLINT=no MKPROFILE=no MKYP=no				\
+		    MKNLS=no NOGCCERROR=1 HAVE_LIBGCC_EH=yes MKGCC=yes			\
 		    ${objarg} ${STDJ} dependall
-		${RUMPMAKE} MKMAN=no MKLINT=no MKPROFILE=no MKYP=no	\
+		${RUMPMAKE} MKMAN=no MKLINT=no MKPROFILE=no MKYP=no MKGCC=yes	\
 		    ${objarg} ${STDJ} install
 	)
 }

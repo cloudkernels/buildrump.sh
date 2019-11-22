@@ -60,7 +60,7 @@ NBSRC_EXTRA_sys="
    $NBSRC_CVSDATE:
 	src/external/public-domain/xz src/usr.bin/grep
 	src/external/gpl3/gcc src/external/gpl3/gcc.old src/external/lgpl3/gmp
-	src/lib/librt src/lib/libintl"
+	src/lib/librt src/lib/libintl src/external/lgpl3/mpfr src/external/lgpl3/mpc"
 
 NBSRC_EXTRA_posix=''
 

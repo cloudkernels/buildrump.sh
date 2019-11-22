@@ -29,7 +29,7 @@ usermtree ()
 	destbase=$1
 
 	INCSDIRS='adosfs altq arpa c++ c++/experimental c++/ext crypto
-	    dev filecorefs fs i386 isofs miscfs
+	    dev filecorefs fs i386 isofs miscfs gcc-6 gcc-6/sanitizer
 	    msdosfs net net80211 netatalk netbt netinet netinet6 netipsec
 	    netisdn netkey netmpls netnatm netsmb nfs ntfs openssl pcap
 	    ppath prop protocols rpc rpcsvc rumprun ssp sys ufs uvm x86'
@@ -48,7 +48,8 @@ stdlibs ()
 	    libpthread librmt libutil liby libz librt'
 	extralibs='external/bsd/flex/lib
 	    external/bsd/libpcap/lib
-	    external/gpl3/gcc/lib/libgcc'
+	    external/gpl3/gcc/lib/libgcc
+	    external/gpl3/gcc/usr.bin/include'
 	for lib in ${liblibs}; do
 		echo ${prefix}lib/${lib}
 	done

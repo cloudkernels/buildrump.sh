@@ -546,7 +546,7 @@ int main() {gzopen(NULL, NULL); return 0;}' -lz \
 	for x in CC AR NM OBJCOPY; do
 		maketoolwrapper true $x
 	done
-	for x in AS LD OBJDUMP RANLIB READELF SIZE STRINGS STRIP; do
+	for x in AS LD OBJDUMP RANLIB READELF SIZE STRINGS STRIP GFORTRAN; do
 		maketoolwrapper false $x
 	done
 	${HAVECXX} && maketoolwrapper false CXX
@@ -655,6 +655,7 @@ EOF
 	exec 3>&1 1>${BRTOOLDIR}/toolchain-conf.mk
 	printf 'BUILDRUMP_TOOL_CFLAGS=%s\n' "${EXTRA_CFLAGS}"
 	printf 'BUILDRUMP_TOOL_CXXFLAGS=%s\n' "${EXTRA_CFLAGS}"
+	printf 'BUILDRUMP_TOOL_FFLAGS=%s\n' "${EXTRA_CFLAGS}"
 	printf 'BUILDRUMP_TOOL_CPPFLAGS=-D__NetBSD__ %s %s\n' \
 	    "${EXTRA_CPPFLAGS}" "${RUMPKERN_UNDEF}"
 	exec 1>&3 3>&-
@@ -1026,7 +1027,7 @@ evaltoolchain ()
 	# rump kernel development and integration (see rumprun for
 	# an example of this)
 	for x in AR AS CPP LD NM OBJCOPY OBJDUMP RANLIB READELF \
-	    SIZE STRINGS STRIP; do
+	    SIZE STRINGS STRIP GFORTRAN; do
 		settool ${x} ${crosstools}
 	done
 
